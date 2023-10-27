@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prediksi Harga Sewa Kost di Kota Batam</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}" />
+</head>
+
+<body>
+    <!-- <div class="container-fluid bg-dark text-light py-3">
+        <header class="text-center">
+            <h1 class="display-6">Prediksi Harga Sewa Kost dikota Batam</h1>
+        </header>
+    </div> -->
+    <div class="container-fluid banner">
+        <div class=" container text-center">
+            <h4 class="display-4 fw-medium">Halo! Selamat Datang</h4>
+            <h4 class="display-6 fw-medium"><b>di Website Prediksi Harga Kost di Kota Batam</b></h3>
+                <p class="fs-5">Di website ini, kamu bisa memprediksi harga dari kamar kost kamu lhoo <br>Dengan
+                    memasukkan
+                    fasilitas - fasilitas yang ada, maka kamu akan <br> bisa melihat berapa harga
+                    prediksi dari kamar kost kamu</p>
+                <a href="#prediksi">
+                    <button type="button" class="btn btn-outline-info btn-lg">
+                        Ayo Prediksi Harga Kos Kamu
+                    </button>
+                </a>
+        </div>
+    </div>
+    <section class="container card my-4 w-50 p-4 shadow-md" id="prediksi">
+        <h1 class="text-center">Form Prediksi</h1>
+        <form id="form" method="post" action="/predict" class="row g-3">
+            <div class="col-12">
+                <label for="inputkecamatan" class="form-label fw-medium">Kecamatan</label>
+                <select required name="kecamatan" id="inputkecamatan" class="form-select">
+                    <option disabled selected value="">Pilih Kecamatan</option>
+                    <option value="Batam Kota">Batam Kota</option>
+                    <option value="Batu Aji">Batu Aji</option>
+                    <option value="Batu Ampar">Batu Ampar</option>
+                    <option value="Bengkong">Bengkong</option>
+                    <option value="Lubuk Baja">Lubuk Baja</option>
+                    <option value="Nongsa">Nongsa</option>
+                    <option value="Sagulung">Sagulung</option>
+                    <option value="Sekupang">Sekupang</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputukuran" class="form-label fw-medium">Ukuran Kamar</label>
+                <select required name="ukuran" id="inputukuran" class="form-select">
+                    <option disabled selected value="">Pilih Ukuran Kamar</option>
+                    <option value="2 × 3">2 x 3</option>
+                    <option value="3 × 3">3 x 3</option>
+                    <option value="3 × 4">3 x 4</option>
+                    <option value="4 × 4">4 x 4</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="inputairlistrik" class="form-label fw-medium">Apakah termasuk Listrik?</label>
+                <select required name="air_listrik" id="inputairlistrik" class="form-select">
+                    <option disabled selected value="">Pilih Air dan Listrik</option>
+                    <option value="Air Saja">Air Saja</option>
+                    <option value="Listrik dan Air">Ya, Termasuk Listrik</option>
+                </select>
+            </div>
+            <label for="inputState" class="form-label fw-medium">Fasilitas Dalam Kamar</label>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="ac" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        AC
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="air_panas" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Air Panas
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="wc_dalam" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Kamar Mandi Dalam
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="kasur" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Kasur
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="kipas_angin" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Kipas Angin
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="kloset_duduk" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Kloset Duduk
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="kursi" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Kursi
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="lemari" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Lemari
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="meja" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Meja
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="tv" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        TV
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="tidak_ada" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Tidak Ada
+                    </label>
+                </div>
+            </div>
+            <label for="inputState" class="form-label fw-medium">Fasilitas Luar kamar / Bersama</label>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="dapur" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Dapur
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="wc" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Kamar Mandi
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="kulkas" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Kulkas
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="laundry" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Laundry
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="mesin_cuci" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Mesin Cuci
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="parkir_mobil" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Parkir Mobil
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="parkir_motor" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Parkir Motor
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="tv_luar" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        TV Luar
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="ruang_santai" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Ruang Santai
+                    </label>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-check">
+                    <input value="check" name="wifi" class="form-check-input" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Wi-fi
+                    </label>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" id="submit" class="btn btn-info" style="color: white;">Prediksi Harga
+                    Kamar</button>
+            </div>
+        </form>
+        <p id="prediction" class="alert alert-info mt-4"></p>
+
+        </p>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script>
+        const submit = document.getElementById('submit');
+        const prediction = document.getElementById('prediction');
+        submit.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // validation
+            if (document.getElementById('inputkecamatan').value === '') {
+                document.getElementById('inputkecamatan').focus()
+                alert('Silahkan pilih kecamatan');
+                return;
+            }
+            if (document.getElementById('inputukuran').value === '') {
+                document.getElementById('inputukuran').focus()
+                alert('Silahkan pilih ukuran');
+                return;
+            }
+            if (document.getElementById('inputairlistrik').value === '') {
+                document.getElementById('inputairlistrik').focus()
+                alert('Silahkan pilih air dan listrik');
+                return;
+            }
+
+            event.currentTarget.toggleAttribute('disabled');
+            fetch('./predict', {
+                method: 'POST',
+                body: new FormData(document.getElementById('form')),
+            }).then(function (res) {
+                return res.json();
+            }).then(function (res) {
+                const harga = res.harga;
+                submit.toggleAttribute('disabled');
+                prediction.textContent = harga;
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+body {
+    background-color: rgb(228, 228, 228);
+}
+
+.banner {
+    background: url(kos.jpg) no-repeat center center;
+    background-size: cover;
+    padding-top: 15%;
+    padding-bottom: 15%;
+    color: #FFFFFF;
+}
